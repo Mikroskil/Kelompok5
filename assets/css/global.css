@@ -1,0 +1,38 @@
+body {
+    	font-family: Arial;
+    	color: #363636;
+	background : #F7F7FF;
+}
+
+p {
+	margin:0;
+}
+
+.container{
+	background: #DDD;
+    	border-radius: 10px 10px 10px 10px;
+    	margin-left: 6%;
+	margin-right: 6%;
+	min-height: 72%;
+    	clear: both;
+    	padding: 3px 20px;
+    	display: block;
+}
+
+#contain {
+	background : #EEE;
+    	border-radius: 10px 10px 10px 10px;
+	min-height: 50%;
+	clear : both;
+	padding: 10px 15px;
+	display: block;
+}
+
+#contain p {
+	color: #363636;
+	font-size:15px;
+}
+
+.break {
+    	clear: both;
+}

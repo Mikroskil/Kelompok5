@@ -1,0 +1,15 @@
+#menu {
+	float : left;
+	padding: 10px 100px;
+}
+
+#menu a {
+	color: #C5E;
+	font-size: 17px;
+	font-weight : bold;
+}
+
+#search {
+	float : right;
+	margin-right:6%;
+}
