@@ -1,0 +1,27 @@
+#header {
+	height:40px;
+    	padding: 10px;
+    	border-radius: 10px 10px 10px 10px;
+    	background: #666;
+}
+
+#logo {
+	float : left;
+	margin-left:6%;
+}
+
+#login {
+	float : left;
+	margin-top: 6;
+	margin-left: 50%;
+}
+
+#login a {
+	color : #FFF;
+}
+
+#search {
+	float : right;
+	margin-right:6%;
+	margin-top:0;
+}

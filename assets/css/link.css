@@ -1,4 +1,4 @@
-body a : link {
+a : link {
 	color: maroon; 
 	text-decoration: none;
 }
