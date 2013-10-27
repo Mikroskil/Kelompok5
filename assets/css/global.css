@@ -5,7 +5,7 @@ body {
 }
 
 p {
-	margin:0;
+	margin:2;
 }
 
 .container{
@@ -13,7 +13,7 @@ p {
     	border-radius: 10px 10px 10px 10px;
     	margin-left: 6%;
 	margin-right: 6%;
-	min-height: 72%;
+	min-height: 68%;
     	clear: both;
     	padding: 3px 20px;
     	display: block;
@@ -35,4 +35,11 @@ p {
 
 .break {
     	clear: both;
+}
+
+hr {
+	align : center;
+	color : #CCC;
+	size : 1;
+	width : 100%;
 }

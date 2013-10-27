@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Q&A</title>
+		<title>Unanswered</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/link.css" />
 	</head>
@@ -9,7 +9,7 @@
 		<br class="break" />
 		<?php include_once 'menu.html'; ?>
 		<div class="container">
-			<h2>Recent Questions</h2>
+			<h2>Unanswered Questions</h2>
 			<div id="contain">
 				<a href="question.php"><p>Question One</p></a>
 				<a href="question.php"><p>Question Two</p></a>

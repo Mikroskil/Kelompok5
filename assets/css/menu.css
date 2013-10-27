@@ -1,6 +1,6 @@
 #menu {
 	float : left;
-	padding: 10px 100px;
+	padding: 5px 100px;
 }
 
 #menu a {
@@ -9,7 +9,3 @@
 	font-weight : bold;
 }
 
-#search {
-	float : right;
-	margin-right:6%;
-}
