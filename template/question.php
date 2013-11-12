@@ -4,9 +4,9 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 	</head>
 	<body>
-		<?php include_once 'header.html'; ?>
+		<?php include_once 'header.php'; ?>
 		<br class="break" />
-		<?php include_once 'menu.html'; ?>
+		<?php include_once 'menu.php'; ?>
 		<div class="container">
 			<form action="" method="post">
 			<h3>Title Question</h3>

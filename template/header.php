@@ -11,8 +11,19 @@
 		</div>
 		<div id="login">
 			<p> 
-				<a class="regis" href="register.php">sign up</a> &nbsp; &nbsp; &nbsp; &nbsp;
-				<a href="login.php">log in</a>
+				<?php
+					session_start();
+					if (isset($_SESSION["status"]))
+					{
+						echo "<a class='regis' href='profil.php'>" . $_SESSION["name"] . "</a> &nbsp; &nbsp; &nbsp; &nbsp;";
+						echo "<a href = 'logout.php'>Log Out</a>";
+					}
+					else
+					{
+						echo "<a class='regis' href='register.php'>Sign Up</a> &nbsp; &nbsp; &nbsp; &nbsp";
+						echo "<a href='login.php'>Log In</a>";
+					}
+				?>
 			</p>
 		</div>
 		<div id="search">

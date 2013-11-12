@@ -5,10 +5,10 @@
 		
 	</head>
 	<body>
-		<?php include_once 'header.html'; ?>
+		<?php include_once 'header.php'; ?>
 		<br class="break" />
 		
-		<?php include_once 'menu.html'; ?>
+		<?php include_once 'menu.php'; ?>
 		
 		<div class="container">
 		
@@ -20,7 +20,7 @@
 			{
 				if (!preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9\.\-\_]+$/",$_POST["username"]))
 					$error = "Id kosong atau salah!";
-				else if (!preg_match("/^[a-zA-Z]+$/",$_POST["name"]))
+				else if (!preg_match("/^[a-zA-Z]/",$_POST["name"]))
 					$error = "Nama kosong atau salah!";
 				else if (!preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9_.]+)[@]{1}[a-zA-Z]+(([.]{1}[a-zA-Z]{2,4}){1,})/",$_POST["email"]))
 					$error = "Email kosong atau salah!";
@@ -28,6 +28,7 @@
 					$error = "Password salah atau kurang dari 4 karakter!";
 				else
 				{
+					$error = "&nbsp";
 					$data = Array();
 					$cek = true;
 					
@@ -47,12 +48,12 @@
 					
 					if ($cek)
 					{
-						$nama = $_POST["nama"];
+						$nama = $_POST["name"];
 						$email = $_POST["email"];
-						$pass = $_POST["pass"];
+						$pass = $_POST["password"];
 					
 						$insert = mysql_query("INSERT INTO user (username, password,nama,email)
-						VALUES ('$username' , '$password' , '$nama' , '$email') " , $connect);
+						VALUES ('$username' , '$pass' , '$nama' , '$email') " , $connect);
 					}
 					mysql_close($connect);
 				}
