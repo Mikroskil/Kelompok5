@@ -54,6 +54,12 @@
 					
 						$insert = mysql_query("INSERT INTO user (username, password,nama,email)
 						VALUES ('$username' , '$pass' , '$nama' , '$email') " , $connect);
+						
+						$_SESSION["status"] = 1;
+						$_SESSION["name"] = $nama;
+						$_SESSION["username"] = $username;
+						
+						header("location:index.php");
 					}
 					mysql_close($connect);
 				}
