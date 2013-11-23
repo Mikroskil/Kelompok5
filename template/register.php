@@ -1,3 +1,6 @@
+<?php
+    require_once __DIR__.'/../sql/user.php';
+?>
 <html>
 	<head>
 		<title>Register</title>
@@ -30,30 +33,19 @@
 				{
 					$error = "&nbsp";
 					$data = Array();
-					$cek = true;
+					$cek = checkUser($_POST['username']);
+                    if ($cek) {
+                        $error = "Id telah terpakai!";
+                    }
 					
-					$connect = mysql_connect("localhost","root","");
-					mysql_select_db("easyask",$connect);
-					$tabel = mysql_query("SELECT * FROM user");
-					
-					$username = $_POST["username"];
-					while ($row = mysql_fetch_array($tabel))
+					if (!$cek)
 					{
-						if ($row['username'] == $_POST["username"])
-						{
-							$error = "Id telah terpakai!";
-							$cek = false;
-						}
-					}
-					
-					if ($cek)
-					{
+                        $username = $_POST['username'];
 						$nama = $_POST["name"];
 						$email = $_POST["email"];
 						$pass = $_POST["password"];
 					
-						$insert = mysql_query("INSERT INTO user (username, password,nama,email)
-						VALUES ('$username' , '$pass' , '$nama' , '$email') " , $connect);
+                        registerUser($username, $pass, $nama, $email);
 						
 						$_SESSION["status"] = 1;
 						$_SESSION["name"] = $nama;
@@ -61,7 +53,6 @@
 						
 						header("location:index.php");
 					}
-					mysql_close($connect);
 				}
 				echo $error;
 			}
