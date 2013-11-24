@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `jawaban` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `isi` varchar(500) NOT NULL,
+  `jb` varchar(500) NOT NULL,
   `doodle` varchar(100) DEFAULT NULL,
   `id_pertanyaan` int(11) NOT NULL,
   `tanggal` datetime NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `jawaban` (
 
 CREATE TABLE IF NOT EXISTS `komentar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `isi` varchar(500) NOT NULL,
+  `komen` varchar(500) NOT NULL,
   `id_jawaban` int(11) NOT NULL,
   `tanggal` datetime NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -63,8 +63,9 @@ CREATE TABLE IF NOT EXISTS `komentar` (
 
 CREATE TABLE IF NOT EXISTS `pertanyaan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
   `tag` varchar(50) NOT NULL,
-  `isi` varchar(500) NOT NULL,
+  `pert` varchar(500) NOT NULL,
   `doodle` varchar(100) DEFAULT NULL,
   `tanggal` datetime NOT NULL,
   `id_user` int(11) NOT NULL,

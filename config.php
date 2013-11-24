@@ -2,7 +2,7 @@
 
 $dbhost = 'localhost';
 $dbuser = 'root';
-$dbpass = 'toor';
+$dbpass = '';
 $dbname = 'easyask';
 $mysql = mysql_connect($dbhost, $dbuser, $dbpass);
 if (!$mysql) {
