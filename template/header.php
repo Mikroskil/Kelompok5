@@ -27,10 +27,10 @@
 			</p>
 		</div>
 		<div id="search">
-			<form action="searchresults.php" method="post">
+			<form action="searchresults.php" method="get">
 				<fieldset>
-				<input type="text" name="search" placeholder="search">
-				<input type="submit" value="Search">
+                    <input type="text" name="search" placeholder="search" />
+                    <input type="submit" value="Search" />
 				</fieldset>
 			</form>
 		</div>

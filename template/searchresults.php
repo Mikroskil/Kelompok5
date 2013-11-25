@@ -1,3 +1,13 @@
+<?php
+
+require_once __DIR__.'/../sql/question.php';
+
+preg_match_all('/\[([^\]]*)\]/', $_GET['search'], $tags);
+$keywords = preg_split('/ *\[[^\]]*\] */', $_GET['search']);
+
+$questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
+
+?>
 <html>
 	<head>
 		<title>Search Result</title>
@@ -11,9 +21,9 @@
 		<div class="container">
 			<h2>Search Results</h2>
 			<div id="contain">
-				<a href="question.php"><p>Search Result One</p></a>
-				<a href="question.php"><p>Search Result Two</p></a>
-				<a href="question.php"><p>Search Result Three</p></a>
+                <?php foreach ($questions as $question): ?>
+                    <a href="question.php"><p><?php echo $question['isi']; ?></p></a>
+                <?php endforeach; ?>
 			</div>
 		</div>
 		<br class="break" />

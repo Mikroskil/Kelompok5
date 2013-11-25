@@ -46,4 +46,25 @@ function postQuestion($title, $tag, $pert, $doodle, $id_user)
 		INSERT INTO pertanyaan (title, tag, pert, doodle, tanggal, id_user) VALUES ('$title' , '$tag' , '$pert' , '$doodle' , NOW() , '$id_user')
 	", $mysql);
 }
+
+function searchQuestion($keywords, $tags)
+{
+    global $mysql;
+
+    if (empty($tags)) {
+        $query = mysql_query("SELECT * FROM pertanyaan WHERE isi LIKE '%$keywords%'");
+    } else {
+        $tags = array_map(function($element) { return "'$element'"; }, $tags);
+        $tagsFilter = implode(',', $tags);
+        $tagsFilter = '('.$tagsFilter.')';
+
+        $query = mysql_query("SELECT * FROM pertanyaan WHERE isi LIKE '%$keywords%' AND tag IN $tagsFilter");
+    }
+    $results = array();
+    while ($row = mysql_fetch_assoc($query)) {
+        $results[] = $row;
+    }
+
+    return $results;
+}
 ?>
