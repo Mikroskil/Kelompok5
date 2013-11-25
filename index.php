@@ -1,1 +1,1 @@
-<?php header("Location: __DIR__/template/index.php"); ?>
+<?php header('Location: ./template/index.php'); ?>
