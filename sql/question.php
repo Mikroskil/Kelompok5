@@ -9,7 +9,7 @@ function getNewQuestion()
 	$query = mysql_query("SELECT * FROM pertanyaan ORDER BY tanggal", $mysql);
 
 	$result = array();
-	while ($data = mysql_fetch_row($query))
+	while ($data = mysql_fetch_assoc($query))
 	{
      		$result[] = $data;
 	}	
@@ -24,7 +24,7 @@ function getUnanswerredQuestion()
 	$query = mysql_query("SELECT * FROM pertanyaan LEFT JOIN jawaban ON pertanyaan.id = jawaban.id_pertanyaan WHERE jb is NULL", $mysql);
 
 	$result = array();
-	while ($data = mysql_fetch_row($query))
+	while ($data = mysql_fetch_assoc($query))
 	{
      		$result[] = $data;
 	}	
