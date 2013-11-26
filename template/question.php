@@ -1,3 +1,8 @@
+<?php
+
+require_once __DIR__.'/../sql/question.php';
+
+?>
 <html>
 	<head>
 		<title>Questions</title>
@@ -9,10 +14,18 @@
 		<?php include_once 'menu.php'; ?>
 		<div class="container">
 			<form action="" method="post">
-			<h3>Title Question</h3>
+			<h3>
+			<?php
+				$data = getQuestionAnswerCommentById($_GET['id']);
+				echo $data['title'];
+			?></h3>
 			<div id="contain">
 			<img src="../images/questions-and-answers.jpg" width="100"> <br>
-				<p>Isi Pertanyaan</p>
+				<p>
+				<?php
+				echo $data['pert'];
+				?>
+				</p>
 				<hr>
 				<label for="form-comment"><h3>Answer</h3></label>
 				<img src="../images/doodlechat.jpg" width="200">

@@ -70,17 +70,16 @@ function searchQuestion($keywords, $tags)
 
 function getQuestionAnswerCommentById($id) {
     global $myqsl;
-
     $queryPertanyaan = mysql_query("
         SELECT p.*, u.username FROM pertanyaan p INNER JOIN user u ON u.id = p.id_user 
         WHERE p.id = $id
-    ", $mysql);
+    ");
     $pertanyaan = mysql_fetch_assoc($queryPertanyaan);
-
+	
     $queryJawaban = mysql_query("
         SELECT j.*, u.username FROM jawaban j INNER JOIN user u ON u.id = j.id_user 
         WHERE j.id_pertanyaan = $pertanyaan[id]
-    ", $mysql);
+    ");
     $pertanyaan['jawaban'] = array();
     while ($jawaban = mysql_fetch_assoc($queryJawaban)) {
         $queryKomentar = mysql_query("
