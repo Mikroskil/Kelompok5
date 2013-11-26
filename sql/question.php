@@ -67,4 +67,33 @@ function searchQuestion($keywords, $tags)
 
     return $results;
 }
+
+function getQuestionAnswerCommentById($id) {
+    global $myqsl;
+
+    $queryPertanyaan = mysql_query("
+        SELECT p.*, u.username FROM pertanyaan p INNER JOIN user u ON u.id = p.id_user 
+        WHERE p.id = $id
+    ", $mysql);
+    $pertanyaan = mysql_fetch_assoc($queryPertanyaan);
+
+    $queryJawaban = mysql_query("
+        SELECT j.*, u.username FROM jawaban j INNER JOIN user u ON u.id = j.id_user 
+        WHERE j.id_pertanyaan = $pertanyaan[id]
+    ", $mysql);
+    $pertanyaan['jawaban'] = array();
+    while ($jawaban = mysql_fetch_assoc($queryJawaban)) {
+        $queryKomentar = mysql_query("
+            SELECT k.*, u.username FROM komentar k INNER JOIN user u ON u.id = k.id_user
+            WHERE k.id_jawaban = $jawaban[id]
+        ");
+        $jawaban['komentar'] = array();
+        while ($komentar = mysql_fetch_assoc($queryKomentar)) {
+            $jawaban['komentar'][] = $komentar;
+        }
+        $pertanyaan['jawaban'][] = $jawaban;
+    }
+
+    return $pertanyaan;
+}
 ?>
