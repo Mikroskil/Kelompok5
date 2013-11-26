@@ -34,11 +34,10 @@
 					$error = "&nbsp";
 					$data = Array();
 					$cek = checkUser($_POST['username']);
-                    if ($cek) {
+					if (!$cek) {
                         $error = "Id telah terpakai!";
                     }
-					
-					if (!$cek)
+					else
 					{
                         $username = $_POST['username'];
 						$nama = $_POST["name"];
