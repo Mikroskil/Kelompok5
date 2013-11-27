@@ -21,8 +21,7 @@ function getUnanswerredQuestion()
 {
 	global $mysql;
 
-	$query = mysql_query("SELECT * FROM pertanyaan LEFT JOIN jawaban ON pertanyaan.id = jawaban.id_pertanyaan WHERE jb is NULL", $mysql);
-
+	$query = mysql_query("SELECT pertanyaan.id,pertanyaan.title FROM pertanyaan LEFT JOIN jawaban ON pertanyaan.id = jawaban.id_pertanyaan WHERE jb is NULL");
 	$result = array();
 	while ($data = mysql_fetch_assoc($query))
 	{

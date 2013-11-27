@@ -1,3 +1,7 @@
+<?php
+    require_once __DIR__.'/../sql/question.php';
+?>
+
 <html>
 	<head>
 		<title>Unanswered</title>
@@ -11,9 +15,16 @@
 		<div class="container">
 			<h2>Unanswered Questions</h2>
 			<div id="contain">
-				<a href="question.php"><p>Question One</p></a>
-				<a href="question.php"><p>Question Two</p></a>
-				<a href="question.php"><p>Question Three</p></a>
+				<?php
+				$hasil = getUnanswerredQuestion();
+				$n = count($hasil);
+				for ($i = 0 ; $i < $n ; $i++)
+				{
+					echo "<a href='question.php?id=" . $hasil[$i]['id'] . "'>";
+					echo $hasil[$i]['title'];
+					echo "</a>";
+				}
+			?>
 			</div>
 		</div>
 		<br class="break" />
