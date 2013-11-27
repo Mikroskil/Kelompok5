@@ -12,15 +12,8 @@
 		<br class="break" />
 		
 		<?php include_once 'menu.php'; ?>
-		
+		<?php $data = getUser($_SESSION["username"]); ?>
 		<div class="container">
-		
-		<?php
-			$connect = mysql_connect("localhost","root","");
-			mysql_select_db("easyask", $connect);
-			$tabel = mysql_query("SELECT * FROM user");
-			$data = mysql_fetch_array($tabel);
-		?>
 		
 			<h2>Profil</h2>
 			<div id="contain">

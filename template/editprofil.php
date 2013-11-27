@@ -17,13 +17,7 @@
 		
 			<h2>Edit Profil</h2>
 			<div id="contain">
-			<?php
-			
-			$connect = mysql_connect("localhost","root","");
-			mysql_select_db("easyask", $connect);
-			$tabel = mysql_query("SELECT * FROM user");
-			$data = mysql_fetch_array($tabel);
-			
+			<?php		
 			$error = "&nbsp";
 			if (isset($_POST["submit"]))
 			{

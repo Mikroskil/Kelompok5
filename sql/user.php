@@ -6,7 +6,7 @@ function checkUser($username) {
     global $mysql;
 
     $username = mysql_escape_string($username);
-    $query = mysql_query("SELECT * FROM user WHERE user = $username", $mysql);
+    $query = mysql_query("SELECT * FROM user WHERE user = '$username'", $mysql);
 
     return mysql_num_rows($query) > 0 ? true : false;
 }
@@ -34,5 +34,14 @@ function editUser($username,$password, $nama) {
 	UPDATE user SET password = '$password', nama = '$nama'
 	WHERE username = '$username'
 	", $mysql);
+}
+
+function getUser($username){
+	global $mysql;
+	
+	$username = mysql_escape_string($username);
+	$tabel = mysql_query("SELECT * FROM user WHERE username = '$username'",$mysql);
+	$result = mysql_fetch_assoc($tabel);
+	return $result;
 }
 ?>
