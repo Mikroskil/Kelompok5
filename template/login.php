@@ -14,6 +14,8 @@
 									<?php
 										if ( ($_GET["salah"]) == "true")
 											echo "Username atau Password salah!<br>";
+										if ( ($_GET["x"]) =="question")
+											echo "Anda Harus Registrasi Terlebih Dahulu sebelum bisa mempost jawaban dan komentar");
 									?>
 									<label for="form-user">Username</label>
 									<br>

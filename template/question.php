@@ -7,6 +7,15 @@ require_once __DIR__.'/../sql/question.php';
 	<head>
 		<title>Questions</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
+		
+		<?php
+			if ( isset($_POST["submit"]) )
+			{
+				if ( isset($_SESSION["status"]) )
+					header("location:login.php?x=question");
+			}
+		?>
+		
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
@@ -43,7 +52,7 @@ require_once __DIR__.'/../sql/question.php';
 				<br>
 				<textarea name="answer" rows="5" cols="50%" id="form-answer" placeholder="type the answer here"></textarea>
 				<br>
-				<input type="submit" s="Post Your Answer">
+				<input type="submit" name="submit" s="Post Your Answer">
 			</div>
 			</form>
 		</div>
