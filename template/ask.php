@@ -13,7 +13,6 @@
 		<?php include_once 'menu.php'; ?>
 		<?php 
 			$data = getUser($_SESSION["username"]);
-			var_dump($data["id"]);
 			if(isset($_POST["submit"]))
 			{
 				$title = $_POST["title"];
@@ -21,7 +20,7 @@
 				$quest = $_POST["quest"];
 				$doodle = "";
 				$id = $data["id"];
-				postQuestion($title,$tags,$quest,$doodle,$tags,$id);
+				postQuestion($title,$tags,$quest,$doodle,$id);
 				
 				
 			}

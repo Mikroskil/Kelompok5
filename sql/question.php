@@ -42,7 +42,7 @@ function postQuestion($title, $tag, $pert, $doodle, $id_user)
 	$id_user = mysql_escape_string($id_user);
 
 	return mysql_query("
-		INSERT INTO pertanyaan (title, tag, pert, doodle, tanggal, id_user) VALUES ('$title' , '$tag' , '$pert' , '$doodle' , NOW() , '$id_user')
+		INSERT INTO pertanyaan (title, tag, pert, doodle, tanggal, id_user) VALUES ('$title' , '$tag' , '$pert' , '$doodle' , NOW() , $id_user)
 	", $mysql);
 }
 

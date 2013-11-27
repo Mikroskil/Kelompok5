@@ -1,5 +1,5 @@
 <?php
-	$connect = mysql_connect("localhost","root","");
+	$connect = mysql_connect("localhost","root","toor");
 	mysql_select_db("easyask", $connect);
 	$tabel = mysql_query("SELECT * FROM user");
 	$cek = false;
