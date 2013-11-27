@@ -23,4 +23,16 @@ function registerUser($username, $password, $nama, $email) {
         INSERT INTO user (username, password,nama,email) VALUES ('$username' , '$password' , '$nama' , '$email')
     ", $mysql);
 }
+
+function editUser($username,$password, $nama) {
+	global $mysql;
+	
+	$password = mysql_escape_string($password);
+	$nama = mysql_escape_string($nama);
+	
+	return mysql_query("
+	UPDATE user SET password = '$password', nama = '$nama'
+	WHERE username = '$username'
+	", $mysql);
+}
 ?>
