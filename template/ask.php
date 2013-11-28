@@ -13,17 +13,17 @@
 		<?php include_once 'menu.php'; ?>
 		<?php 
 			$data = getUser($_SESSION["username"]);
-			if(isset($_POST["submit"]))
+			if(isset($_POST["submit"]) && $_SESSION["status"] == 1)
 			{
-				$title = $_POST["title"];
+				$title = $_POST["title"]; 
 				$tags = $_POST["tags"];
 				$quest = $_POST["quest"];
 				$doodle = "";
 				$id = $data["id"];
 				postQuestion($title,$tags,$quest,$doodle,$id);
-				
-				
 			}
+			else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
+				echo "Anda harus Login terlebih dahulu agar dapat melakukan posting pertanyaan";
 		 ?>
 		<div class="container">
 			<form action="" method="post">

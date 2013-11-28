@@ -43,6 +43,7 @@ require_once __DIR__.'/../sql/question.php';
 				<fieldset>
 					<p>Comment One</p>
 					<p>Comment Two</p>
+					
 					<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
 				</fieldset>
 				<br>
@@ -50,6 +51,7 @@ require_once __DIR__.'/../sql/question.php';
 				<label for="form-answer"><h3>Your Answer</h3><label>
 				<img src="../images/doodlechat.jpg" width="200">
 				<br>
+
 				<textarea name="answer" rows="5" cols="50%" id="form-answer" placeholder="type the answer here"></textarea>
 				<br>
 				<input type="submit" name="submit" value="Post Your Answer">

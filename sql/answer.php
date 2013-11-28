@@ -12,7 +12,7 @@ function postAnswer($jb, $doodle, $id_pertanyaan, $id_user)
 	$id_user = mysql_escape_string($id_user);
 
 	return mysql_query ("
-		INSERT INTO jawaban (jb, doodle, id_pertanyaan, tanggal, id_user) VALUES ('$jb' , '$doodle', '$id_pertanyaan' , NOW() , '$id_user')
+		INSERT INTO jawaban (jb, doodle, id_pertanyaan, tanggal, id_user) VALUES ('$jb' , '$doodle', '$id_pertanyaan' , NOW() , $id_user)
 	", $mysql);
 }
 ?>
