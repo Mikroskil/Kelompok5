@@ -8,6 +8,12 @@ p {
 	margin:2;
 }
 
+canvas {
+    background-color: #FFF;
+    border: solid thin #CCC;
+    border-radius: 4px;
+}
+
 .container{
 	background: #DDD;
     	border-radius: 10px 10px 10px 10px;
