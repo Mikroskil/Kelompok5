@@ -6,7 +6,7 @@ function getNewQuestion()
 {
 	global $mysql;
 
-	$query = mysql_query("SELECT * FROM pertanyaan ORDER BY tanggal", $mysql);
+	$query = mysql_query("SELECT * FROM pertanyaan ORDER BY tanggal DESC", $mysql);
 
 	$result = array();
 	while ($data = mysql_fetch_assoc($query))

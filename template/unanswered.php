@@ -23,7 +23,7 @@
 					echo "<a href='question.php?id=" . $hasil[$i]['id'] . "'>";
 					echo $hasil[$i]['title'];
 					echo "</a>";
-					echo "\n";
+					echo "<br>";
 				}
 			?>
 			</div>
