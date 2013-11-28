@@ -13,8 +13,7 @@
 		
 		<?php include_once 'menu.php'; ?>
 		
-		<div class="container">
-		
+		<div class="container">		
 			<h2>Create Account</h2>
 			<div id="contain">
 			<?php

@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__.'/../sql/user.php';
+?>
 <html>
     	<head>
        		 <title>Login</title>
@@ -10,12 +13,14 @@
         		<div class="container">
             			<h3>Log In</h3>
             			<div id="contain">
-								<form class="login" action="proseslogin.php" method="post">
+								<form class="login" action="" method="post">
 									<?php
+										if ( (isset($_POST["username"])) && (isset($_POST["password"])))
+											prosesLogin($_POST["username"],$_POST["password"]);
 										if ( ($_GET["salah"]) == "true")
 											echo "Username atau Password salah!<br>";
-										if ( ($_GET["x"]) =="question")
-											echo "Anda Harus Registrasi Terlebih Dahulu sebelum bisa mempost jawaban dan komentar");
+										if ( ($_GET["x"]) == "question")
+											echo "Anda Harus Registrasi Terlebih Dahulu sebelum bisa mempost jawaban dan komentar";
 									?>
 									<label for="form-user">Username</label>
 									<br>

@@ -44,4 +44,33 @@ function getUser($username){
 	$result = mysql_fetch_assoc($tabel);
 	return $result;
 }
+
+function prosesLogin($username,$password){
+	global $mysql;
+	
+	$username = mysql_escape_string($username);
+	$password = mysql_escape_string($password);
+	$tabel = mysql_query("SELECT * FROM user");
+	$cek = false;
+	
+	while ( ($data = mysql_fetch_array($tabel)) && (!$cek) )
+		{
+			if ($_POST["username"] == $data["username"] && $_POST["password"] == $data["password"] )
+			{
+			session_start();
+			$_SESSION["status"] = 1 ;
+			$_SESSION["name"] = $data["nama"];
+			$_SESSION["username"] = $data["username"];
+			$cek = true;
+			}
+		}
+		
+	if ($cek)
+		header("location:index.php");
+	else 
+		header("location:login.php?salah=true");
+		
+	return cek;
+}
+
 ?>
