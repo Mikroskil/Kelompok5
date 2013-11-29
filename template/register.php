@@ -33,7 +33,8 @@
 					$error = "&nbsp";
 					$data = Array();
 					$cek = checkUser($_POST['username']);
-					if (!$cek) {
+					var_dump($cek);
+					if ($cek) {
                         $error = "Id telah terpakai!";
                     }
 					else

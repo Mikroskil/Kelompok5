@@ -10,14 +10,6 @@ require_once __DIR__.'/../sql/user.php';
 		<title>Questions</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		
-		<?php
-			if ( isset($_POST["submit"]) )
-			{
-				if ( isset($_SESSION["status"]) )
-					header("location:login.php?x=question");
-			}
-		?>
-		
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
@@ -41,7 +33,7 @@ require_once __DIR__.'/../sql/user.php';
 					postAnswer($jb, $doodle, $id_quest, $id_user);
 				}
 				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
-					echo "Anda harus login terlebih dahulu agar dapat memposting jawaban";
+					header("location:login.php?x=question");
 			?></h3>
 			<div id="contain">
 			<img src="../images/questions-and-answers.jpg" width="100"> <br>
