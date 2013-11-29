@@ -23,7 +23,7 @@ require_once __DIR__.'/../sql/comment.php';
 				$data = getQuestionAnswerCommentById($_GET['id']);
 				$iduser = getUser($_SESSION["username"]);
 				echo $data['title'];
-				
+				var_dump($data);
 				if(isset($_POST["submit"]) && $_SESSION["status"] == 1)
 				{
 					$jb = $_POST["answer"];
@@ -49,7 +49,10 @@ require_once __DIR__.'/../sql/comment.php';
 					header("location:login.php?x=question");
 			?></h3>
 			<div id="contain">
-			<img src="../images/questions-and-answers.jpg" width="100"> <br>
+				<?php
+					echo "<img src='../uploads/" . $data['doodle'] . "' width='200'>";
+				?>
+				<br>
 				<p>
 				<?php
 				echo $data['pert'];
@@ -57,14 +60,32 @@ require_once __DIR__.'/../sql/comment.php';
 				</p>
 				<hr>
 				<label for="form-comment"><h3>Answer</h3></label>
-				<img src="../images/doodlechat.jpg" width="200">
-				<p>Isi Jawaban</p>
-				<br>
-				<fieldset>
-					<p>Comment One</p>
-					<p>Comment Two</p>
-					<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
-				</fieldset>
+				<?php
+				//<img src="../images/doodlechat.jpg" width="200">
+				//<p>Isi Jawaban</p>
+				//<br>
+				//<fieldset>
+				//	<p>Comment One</p>
+				//	<p>Comment Two</p>
+				//	<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
+				//</fieldset>
+				
+				if (empty($data['jawaban']))
+					echo "No Answer Available";
+				else
+				{
+					$n = count($data['jawaban']);
+					for ($i = 0 ; $i < $n ; $i++)
+					{
+						echo "<img src='../images/doodlechat.jpg' width='200'>";
+						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
+						echo "<fieldset>";
+						
+						echo "<input type='text' size='100%' name='comment' id='form-comment' placeholder='write your comment'>";
+						echo "</fieldset><br>";
+					}
+				}
+				?>
 				<br>
 				<hr>
 				<label for="form-answer"><h3>Your Answer</h3><label>
