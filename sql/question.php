@@ -31,16 +31,6 @@ function getUnanswerredQuestion()
 	return $result;
 }
 
-function getAnswerById($idquest)
-{
-	global $mysql;
-	
-	$query = mysql_query("SELECT jawaban.id FROM jawaban WHERE jawaban.id_pertanyaan = $idquest", $mysql);
-	$result = mysql_fetch_assoc($query);
-
-	return $result;
-}
-
 function postQuestion($title, $tag, $pert, $doodle, $id_user)
 {
 	global $mysql;
@@ -88,6 +78,7 @@ function getQuestionAnswerCommentById($id) {
         SELECT j.*, u.username FROM jawaban j INNER JOIN user u ON u.id = j.id_user 
         WHERE j.id_pertanyaan = $pertanyaan[id]
     ");
+	
     $pertanyaan['jawaban'] = array();
     while ($jawaban = mysql_fetch_assoc($queryJawaban)) {
         $queryKomentar = mysql_query("

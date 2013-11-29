@@ -23,8 +23,7 @@ require_once __DIR__.'/../sql/comment.php';
 				$data = getQuestionAnswerCommentById($_GET['id']);
 				$iduser = getUser($_SESSION["username"]);
 				echo $data['title'];
-				var_dump($data);
-				if(isset($_POST["submit"]) && $_SESSION["status"] == 1)
+				if(isset($_POST["submit"]) && $_SESSION["status"] == 1 && (!empty($_POST["answer"])))
 				{
 					$jb = $_POST["answer"];
 					$doodle = "";
@@ -34,23 +33,27 @@ require_once __DIR__.'/../sql/comment.php';
 				}
 				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
 					header("location:login.php?x=question");
-					
-				if(isset($_POST["comment"]) && $_SESSION["status"] == 1)
-				{
-					$id_quest = $data["id"];
-					$comment = $_POST["comment"];
-					$id_jawaban = getAnswerById($id_quest);
-					$id_user = $_SESSION["username"];
-					var_dump($id_jawaban);
-					var_dump($id_quest);
-					postComment($comment,$id_jawaban,$id_user);
+				
+				$n = count($data['jawaban']);
+				for ($i = 0 ; $i < $n ; $i++)
+				{	
+					if (!empty($_POST[$data['jawaban'][$i]['id']]) && $_SESSION["status"] == 1)
+					{
+						$comment = $_POST[$data['jawaban'][$i]['id']];
+						$id_jawaban = $data['jawaban'][$i]['id'];
+						var_dump($data['jawaban'][$i]['id']);
+						$id_user = getUser($_SESSION['username']);
+						postComment($comment,$id_jawaban,$id_user['id']);
+					}
 				}
-				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
+				
+				if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
 					header("location:login.php?x=question");
 			?></h3>
 			<div id="contain">
 				<?php
-					echo "<img src='../uploads/" . $data['doodle'] . "' width='200'>";
+					if (!empty($data['doodle']))
+						echo "<img src='../uploads/" . $data['doodle'] . "' width='200'>";
 				?>
 				<br>
 				<p>
@@ -61,14 +64,6 @@ require_once __DIR__.'/../sql/comment.php';
 				<hr>
 				<label for="form-comment"><h3>Answer</h3></label>
 				<?php
-				//<img src="../images/doodlechat.jpg" width="200">
-				//<p>Isi Jawaban</p>
-				//<br>
-				//<fieldset>
-				//	<p>Comment One</p>
-				//	<p>Comment Two</p>
-				//	<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
-				//</fieldset>
 				
 				if (empty($data['jawaban']))
 					echo "No Answer Available";
@@ -81,7 +76,15 @@ require_once __DIR__.'/../sql/comment.php';
 						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
 						echo "<fieldset>";
 						
-						echo "<input type='text' size='100%' name='comment' id='form-comment' placeholder='write your comment'>";
+						if (!empty($data['jawaban'][$i]['komentar']))
+						{
+							$m = count($data['jawaban'][$i]['komentar']);
+							for ($j = 0 ; $j < $m ; $j++)
+								echo "<p>" . $data['jawaban'][$i]['komentar'][$j]['komen'] . "</p>";
+						}
+						
+						
+						echo "<input type='text' size='100%' name='" . $data['jawaban'][$i]['id'] . "' id='form-comment' placeholder='write your comment'>";
 						echo "</fieldset><br>";
 					}
 				}
