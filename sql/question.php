@@ -31,6 +31,16 @@ function getUnanswerredQuestion()
 	return $result;
 }
 
+function getAnswerById($idquest)
+{
+	global $mysql;
+	
+	$query = mysql_query("SELECT jawaban.id FROM jawaban WHERE jawaban.id_pertanyaan = $idquest", $mysql);
+	$result = mysql_fetch_assoc($query);
+
+	return $result;
+}
+
 function postQuestion($title, $tag, $pert, $doodle, $id_user)
 {
 	global $mysql;
@@ -45,7 +55,6 @@ function postQuestion($title, $tag, $pert, $doodle, $id_user)
 		INSERT INTO pertanyaan (title, tag, pert, doodle, tanggal, id_user) VALUES ('$title' , '$tag' , '$pert' , '$doodle' , NOW() , $id_user)
 	", $mysql);
 }
-
 function searchQuestion($keywords, $tags)
 {
     global $mysql;
@@ -94,4 +103,5 @@ function getQuestionAnswerCommentById($id) {
 
     return $pertanyaan;
 }
+
 ?>

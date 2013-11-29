@@ -6,7 +6,7 @@ function checkUser($username) {
     global $mysql;
 
     $username = mysql_escape_string($username);
-    $query = mysql_query("SELECT * FROM user WHERE user = '$username'", $mysql);
+    $query = mysql_query("SELECT * FROM user WHERE user = '$username'");
 
     return mysql_num_rows($query) > 0 ? true : false;
 }
@@ -40,7 +40,7 @@ function getUser($username){
 	global $mysql;
 	
 	$username = mysql_escape_string($username);
-	$tabel = mysql_query("SELECT * FROM user WHERE username = '$username'",$mysql);
+	$tabel = mysql_query("SELECT * FROM user WHERE username = '$username'");
 	$result = mysql_fetch_assoc($tabel);
 	return $result;
 }
@@ -70,7 +70,33 @@ function prosesLogin($username,$password){
 	else 
 		header("location:login.php?salah=true");
 		
-	return cek;
+}
+
+function directedLogin($username,$password,$x){
+	global $mysql;
+	
+	$username = mysql_escape_string($username);
+	$password = mysql_escape_string($password);
+	$tabel = mysql_query("SELECT * FROM user");
+	$cek = false;
+	
+	while ( ($data = mysql_fetch_array($tabel)) && (!$cek) )
+		{
+			if ($_POST["username"] == $data["username"] && $_POST["password"] == $data["password"] )
+			{
+			session_start();
+			$_SESSION["status"] = 1 ;
+			$_SESSION["name"] = $data["nama"];
+			$_SESSION["username"] = $data["username"];
+			$cek = true;
+			}
+		}
+		
+	if ($cek)
+		header("location:$x");
+	else 
+		header("location:login.php?salah=true");
+		
 }
 
 ?>

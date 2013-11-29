@@ -3,20 +3,13 @@
 require_once __DIR__.'/../sql/question.php';
 require_once __DIR__.'/../sql/answer.php';
 require_once __DIR__.'/../sql/user.php';
+require_once __DIR__.'/../sql/comment.php';
 
 ?>
 <html>
 	<head>
 		<title>Questions</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
-		
-		<?php
-			if ( isset($_POST["submit"]) )
-			{
-				if ( isset($_SESSION["status"]) )
-					header("location:login.php?x=question");
-			}
-		?>
 		
 	</head>
 	<body>
@@ -37,11 +30,23 @@ require_once __DIR__.'/../sql/user.php';
 					$doodle = "";
 					$id_quest = $data["id"];
 					$id_user = $iduser["id"];
-					
 					postAnswer($jb, $doodle, $id_quest, $id_user);
 				}
 				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
-					echo "Anda harus login terlebih dahulu agar dapat memposting jawaban";
+					header("location:login.php?x=question");
+					
+				if(isset($_POST["comment"]) && $_SESSION["status"] == 1)
+				{
+					$id_quest = $data["id"];
+					$comment = $_POST["comment"];
+					$id_jawaban = getAnswerById($id_quest);
+					$id_user = $_SESSION["username"];
+					var_dump($id_jawaban);
+					var_dump($id_quest);
+					postComment($comment,$id_jawaban,$id_user);
+				}
+				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
+					header("location:login.php?x=question");
 			?></h3>
 			<div id="contain">
 			<img src="../images/questions-and-answers.jpg" width="100"> <br>
@@ -58,7 +63,6 @@ require_once __DIR__.'/../sql/user.php';
 				<fieldset>
 					<p>Comment One</p>
 					<p>Comment Two</p>
-					
 					<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
 				</fieldset>
 				<br>

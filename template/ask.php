@@ -25,7 +25,7 @@
 				postQuestion($title,$tags,$quest,$doodle,$id);
 			}
 			else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
-				echo "Anda harus Login terlebih dahulu agar dapat melakukan posting pertanyaan";
+				header("location:login.php?x=ask");
 		 ?>
 		<div class="container">
 			<form method="post" class="doodle-form">
