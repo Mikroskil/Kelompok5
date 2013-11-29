@@ -20,7 +20,7 @@
 				$title = $_POST["title"]; 
 				$tags = $_POST["tags"];
 				$quest = $_POST["quest"];
-				$doodle = "";
+				$doodle = $_POST["doodle"];
 				$id = $data["id"];
 				postQuestion($title,$tags,$quest,$doodle,$id);
 			}
@@ -28,14 +28,15 @@
 				echo "Anda harus Login terlebih dahulu agar dapat melakukan posting pertanyaan";
 		 ?>
 		<div class="container">
-			<form action="" method="post">
+			<form method="post" class="doodle-form">
 			<label for="form-quest"><h2>Your Question</h2></label>
 			<div id="contain">
 				<label for="form-title">Title</label>
-				<input type="text" size="100%" name="title" id="form-title">
+				<input type="text" name="title" id="form-title">
+				<input type="hidden" name="doodle" value="" />
 				<br>
                 <a href="#" class="btn doodle-add">Add Doodle</a>
-                <a href="#" class="btn btn-danger doodle-cancel">Cancel</a>
+                <a href="#" class="btn doodle-save">Save</a>
                 <div class="doodle-container">
                     <canvas id="doodle" width="800"></canvas>
                     <div>
@@ -47,7 +48,7 @@
 				<textarea name="quest" rows="10" cols="80%" id="form-quest" placeholder="Type your question here..."></textarea>
 				<br>
 				<label for="form-tags">Tags</label>
-				<input type="text" size="100%" name="tags" id="form-tags">
+				<input type="text" name="tags" id="form-tags">
 				<br>
 				<input type="submit" name="submit" value="Post Your Question" class="btn btn-primary">
 			</div>

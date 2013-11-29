@@ -1,8 +1,8 @@
 $(function() {
-    $(".doodle-container, .doodle-cancel").css("display", "none");
-    $(".doodle-add, .doodle-cancel").click(function() {
+    $(".doodle-container, .doodle-save").css("display", "none");
+    $(".doodle-add").click(function() {
         $(".doodle-container").toggle("fast");
-        $(".doodle-add, .doodle-cancel").toggle();
+        $(".doodle-add, .doodle-save").toggle();
     });
     var sigCanvas = document.getElementById("doodle");
     initialize(sigCanvas);
@@ -16,6 +16,21 @@ $(function() {
     $(".eraser").click(function() {
        context.strokeStyle = "White";
        context.lineWidth = 20;
+    });
+    $('.doodle-save').click(function() {
+        if ($(".doodle-add").css("display") == "none") {
+            var canvas = document.getElementById("doodle");
+            var dataURL = canvas.toDataURL();
+            $.ajax({
+                type: "POST",
+                url: "save-image.php", 
+                dataType: "json",
+                data: { img: dataURL },
+                success: function(response) { 
+                    $('input[name="doodle"]').val(response.msg);
+                }
+            });
+        }
     });
 
     function getPosition(mouseEvent, sigCanvas) {
