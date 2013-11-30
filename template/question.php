@@ -3,6 +3,7 @@
 require_once __DIR__.'/../sql/question.php';
 require_once __DIR__.'/../sql/answer.php';
 require_once __DIR__.'/../sql/user.php';
+require_once __DIR__.'/../sql/comment.php';
 
 ?>
 <html>
@@ -29,8 +30,20 @@ require_once __DIR__.'/../sql/user.php';
 					$doodle = "";
 					$id_quest = $data["id"];
 					$id_user = $iduser["id"];
-					
 					postAnswer($jb, $doodle, $id_quest, $id_user);
+				}
+				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
+					header("location:login.php?x=question");
+					
+				if(isset($_POST["comment"]) && $_SESSION["status"] == 1)
+				{
+					$id_quest = $data["id"];
+					$comment = $_POST["comment"];
+					$id_jawaban = getAnswerById($id_quest);
+					$id_user = $_SESSION["username"];
+					var_dump($id_jawaban);
+					var_dump($id_quest);
+					postComment($comment,$id_jawaban,$id_user);
 				}
 				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
 					header("location:login.php?x=question");
@@ -50,7 +63,6 @@ require_once __DIR__.'/../sql/user.php';
 				<fieldset>
 					<p>Comment One</p>
 					<p>Comment Two</p>
-					
 					<input type="text" size="100%" name="comment" id="form-comment" placeholder="write your comment">
 				</fieldset>
 				<br>
