@@ -9,6 +9,14 @@
 		<div id="logo">
 			<a href="index.php"> <img class="logo" src="../images/logo.jpg" width="40"></a>
 		</div>
+		<div id="search">
+			<form action="searchresults.php" method="get">
+				<fieldset>
+                    				<input type="text" name="search" placeholder="search" />
+                    				<input type="submit" value="Search" />
+				</fieldset>
+			</form>
+		</div>
 		<div id="login">
 			<p> 
 				<?php
@@ -25,14 +33,6 @@
 					}
 				?>
 			</p>
-		</div>
-		<div id="search">
-			<form action="searchresults.php" method="get">
-				<fieldset>
-                    <input type="text" name="search" placeholder="search" />
-                    <input type="submit" value="Search" />
-				</fieldset>
-			</form>
 		</div>
 	</div>
 	</body>
