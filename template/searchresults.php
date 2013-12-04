@@ -10,7 +10,7 @@ $questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
 ?>
 <html>
 	<head>
-		<title>Search Result</title>
+		<title>Search Result | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/link.css" />
 	</head>
@@ -21,9 +21,9 @@ $questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
 		<div class="container">
 			<h2>Search Results</h2>
 			<div id="contain">
-                <?php foreach ($questions as $question): ?>
-                    <a href="question.php"><p><?php echo $question['isi']; ?></p></a>
-                <?php endforeach; ?>
+                				<?php foreach ($questions as $question): ?>
+                    				<a href="question.php"><p><?php echo $question['pert']; ?></p></a>
+                				<?php endforeach; ?>
 			</div>
 		</div>
 		<br class="break" />
