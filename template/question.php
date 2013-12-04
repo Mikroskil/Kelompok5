@@ -8,9 +8,8 @@ require_once __DIR__.'/../sql/comment.php';
 ?>
 <html>
 	<head>
-		<title>Questions</title>
+		<title>Questions | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
-		
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
@@ -72,7 +71,7 @@ require_once __DIR__.'/../sql/comment.php';
 					$n = count($data['jawaban']);
 					for ($i = 0 ; $i < $n ; $i++)
 					{
-						echo "<img src='../images/doodlechat.jpg' width='200'>";
+						echo "<img src='../assets/images/doodlechat.jpg' width='200'>";
 						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
 						echo "<fieldset>";
 						
@@ -92,7 +91,7 @@ require_once __DIR__.'/../sql/comment.php';
 				<br>
 				<hr>
 				<label for="form-answer"><h3>Your Answer</h3><label>
-				<img src="../images/doodlechat.jpg" width="200">
+				<img src="../assets/images/doodlechat.jpg" width="200">
 				<br>
 
 				<textarea name="answer" rows="5" cols="50%" id="form-answer" placeholder="type the answer here"></textarea>

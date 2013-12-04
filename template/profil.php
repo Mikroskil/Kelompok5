@@ -3,23 +3,22 @@
 ?>
 <html>
 	<head>
-		<title>Profil</title>
+		<title>Profil | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
 		<br class="break" />
-		
 		<?php include_once 'menu.php'; ?>
 		<?php $data = getUser($_SESSION["username"]); ?>
 		<div class="container">
-		
 			<h2>Profil</h2>
 			<div id="contain">
 				<form action="editprofil.php" method="post">
 				<table>
 				<tr>
+					<td rowspan="4"><img src = "../assets/images/angel-and-devil-doodle.png" width="150"></td>
 					<td>Username</td>
 					<td> : </td>
 					<td><?php echo $data["username"] ?></td>
@@ -29,7 +28,6 @@
 					<td> : </td>
 					<td><?php echo $data["nama"] ?></td>
 				</tr>
-
 				<tr>
 					<td>E-mail</td>
 					<td> : </td>
