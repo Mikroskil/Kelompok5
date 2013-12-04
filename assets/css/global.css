@@ -18,13 +18,8 @@ canvas {
 .container{
 	background: #DDD;
     	border-radius: 10px 10px 10px 10px;
-<<<<<<< HEAD
     	margin-left: 75px;
 	margin-right: 75px;
-=======
-    	margin-left: 6%;
-	margin-right: 6%;
->>>>>>> f6ed5a856d820c65503c25783b8dd0a0ab57786d
 	min-height: 450px;
     	clear: both;
     	padding: 3px 20px;
