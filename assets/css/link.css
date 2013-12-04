@@ -1,20 +1,14 @@
-a : link {
-	color: maroon; 
+a:link {
+	color: #229; 
 	text-decoration: none;
 }
 
-a : visited {
-	color: maroon; 
-	text-decoration: none;
-}
-
-a : hover {
+a:hover {
 	color: maroon; 
 	text-decoration: underline; 
-	background-color: #C4CEF8;
 }
 
-a : active {
+a:active {
 	color: red; 
 	text-decoration: underline; 
 	background-color: #C4CEF8;

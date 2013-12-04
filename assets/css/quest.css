@@ -1,0 +1,32 @@
+#questTitle {
+	font-family : arial;
+	font-size : 16px;
+	font-weight : bold;
+}
+
+#questTitle a {
+	color : #446;
+}
+
+#quest {
+	align : justify;
+}
+
+#quest p {
+	font-size : 14px;
+	color:#334;
+}
+
+#questUser {
+	float : left;
+	margin-left : 8px;
+	font-size : 14px;
+	color:#448;
+}
+
+#questDate {
+	float : left;
+	margin-left : 40px;
+	font-size : 14px;
+	color:#555;
+}
