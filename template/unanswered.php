@@ -4,8 +4,9 @@
 
 <html>
 	<head>
-		<title>Unanswered</title>
+		<title>Unanswered | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/quest.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/link.css" />
 	</head>
 	<body>
@@ -20,10 +21,19 @@
 				$n = count($hasil);
 				for ($i = 0 ; $i < $n ; $i++)
 				{
-					echo "<a href='question.php?id=" . $hasil[$i]['id'] . "'>";
-					echo $hasil[$i]['title'];
-					echo "</a>";
-					echo "<br>";
+					echo "<div id='questTitle'>";
+					echo "<a href='question.php?id=" . $hasil[$i]['id'] . "'>" . $hasil[$i]['title'] . "</a>";
+					echo "</div>";
+					echo "<div id='quest'>";
+					echo "<p> " . $hasil[$i]['pert'] . "</p>";
+					echo "</div>";
+					echo "<div id='questUser'>";
+					echo "Post by : " . $hasil[$i]['username'];
+					echo "</div>";
+					echo "<div id='questDate'>";
+					echo " Post Date : " . $hasil[$i]['tanggalPert'];
+					echo "</div>";
+					echo "<br><br>";
 				}
 			?>
 			</div>
