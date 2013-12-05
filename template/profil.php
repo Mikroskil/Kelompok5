@@ -21,7 +21,6 @@
 				$data = getUser($_SESSION["username"]);
 			}
 		?>
-
 		<div class="container">
 			<h2>Profil</h2>
 			<div id="contain">
