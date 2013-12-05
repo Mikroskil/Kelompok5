@@ -1,0 +1,32 @@
+#comment {
+	float : left;
+	margin-left : 20px;
+	clear : both;
+}
+
+#komentar {
+	clear : both;
+}
+
+#komen {
+	align : justify;
+}
+
+#komen p {
+	font-size : 15px;
+	color:#334;
+}
+
+#komenUser {
+	float : left;
+	margin-left : 8px;
+	font-size : 14px;
+	color:#448;
+}
+
+#komenDate {
+	float : left;
+	margin-left : 40px;
+	font-size : 14px;
+	color:#555;
+}

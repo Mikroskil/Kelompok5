@@ -11,7 +11,17 @@
 		<?php include_once 'header.php'; ?>
 		<br class="break" />
 		<?php include_once 'menu.php'; ?>
-		<?php $data = getUser($_SESSION["username"]); ?>
+		<?php
+			if (!empty($_GET["id"]))
+			{
+				$data = getUser($_GET["id"]);
+			}
+			else
+			{
+				$data = getUser($_SESSION["username"]);
+			}
+		?>
+
 		<div class="container">
 			<h2>Profil</h2>
 			<div id="contain">
@@ -34,7 +44,10 @@
 					<td><?php echo $data["email"] ?></td>
 				</tr>
 				<tr>
-					<td colspan="3"><input type="submit" name="edit" value="Edit Name & Password" /></td>
+					<?php
+						if ($_GET["id"] == $_SESSION["username"] || empty($_GET["id"]) )
+							echo "<td colspan='3'><input type='submit' name='edit' value='Edit Name & Password' /></td>";
+					?>
 				</tr>
 				</table>
 				</form>

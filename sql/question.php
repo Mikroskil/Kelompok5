@@ -66,7 +66,7 @@ function searchQuestion($keywords, $tags)
 }
 
 function getQuestionAnswerCommentById($id) {
-    	global $myqsl;
+    	global $mysql;
 
     	$queryPertanyaan = mysql_query("
         		SELECT p.*, u.username FROM pertanyaan p INNER JOIN user u ON u.id = p.id_user 

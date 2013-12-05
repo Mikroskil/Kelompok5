@@ -17,7 +17,6 @@
 			<div id="contain">
 			<?php
 				$hasil = getNewQuestion();
-				var_dump($hasil);
 				$n = count($hasil);
 				for ($i = 0 ; $i < $n ; $i++)
 				{	
@@ -28,7 +27,7 @@
 					echo "<p> " . $hasil[$i]['pert'] . "</p>";
 					echo "</div>";
 					echo "<div id='questUser'>";
-					echo "Post by : " . $hasil[$i]['username'];
+					echo "Post by : <a href='profil.php?id=" . $hasil[$i]['username'] . "'>" . $hasil[$i]['username'] . "</a>";
 					echo "</div>";
 					echo "<div id='questDate'>";
 					echo "on " . $hasil[$i]['tanggalPert'];
