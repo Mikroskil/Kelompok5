@@ -6,7 +6,7 @@ function getNewQuestion()
 {
 	global $mysql;
 
-	$query = mysql_query("SELECT * FROM pertanyaan INNER JOIN user ON pertanyaan.id_user = user.id ORDER BY tanggalPert DESC");
+	$query = mysql_query("SELECT pertanyaan.id , pertanyaan.title , pertanyaan.pert , pertanyaan.tanggalPert , user.username FROM pertanyaan INNER JOIN user ON pertanyaan.id_user = user.id ORDER BY tanggalPert DESC");
 
 	$result = array();
 	while ($data = mysql_fetch_assoc($query))

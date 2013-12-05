@@ -28,7 +28,7 @@ require_once __DIR__.'/../sql/user.php';
 
 					if ( $_GET["x"] == "question") 
 						echo "Anda harus login terlebih dahulu agar dapat memposting jawaban dan komentar<br>";
-					else
+					else if ( $_GET["x"] == "ask")
 						echo "Anda harus login terlebih dahulu agar dapat menanyakan pertanyaan<br>";
 					?>
 					<label for="form-user">Username</label>

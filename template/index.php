@@ -17,6 +17,7 @@
 			<div id="contain">
 			<?php
 				$hasil = getNewQuestion();
+				var_dump($hasil);
 				$n = count($hasil);
 				for ($i = 0 ; $i < $n ; $i++)
 				{	
@@ -30,7 +31,7 @@
 					echo "Post by : " . $hasil[$i]['username'];
 					echo "</div>";
 					echo "<div id='questDate'>";
-					echo " Post Date : " . $hasil[$i]['tanggalPert'];
+					echo "on " . $hasil[$i]['tanggalPert'];
 					echo "</div>";
 					echo "<br><br>";
 				}
