@@ -17,7 +17,6 @@
 			<div id="contain">
 			<?php
 				$hasil = getNewQuestion();
-				var_dump($hasil);
 				$n = count($hasil);
 				for ($i = 0 ; $i < $n ; $i++)
 				{	

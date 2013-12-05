@@ -71,6 +71,7 @@ require_once __DIR__.'/../sql/comment.php';
 					$n = count($data['jawaban']);
 					for ($i = 0 ; $i < $n ; $i++)
 					{
+						echo "<p><a href='profil.php?id=" . $data['jawaban'][$i]['username'] . "'>" . $data['jawaban'][$i]['username'] . "</a> says : </p>";
 						echo "<img src='../assets/images/doodlechat.jpg' width='200'>";
 						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
 						echo "<fieldset>";
