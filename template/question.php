@@ -32,6 +32,7 @@ require_once __DIR__.'/../sql/comment.php';
 					$id_quest = $data["id"];
 					$id_user = $iduser["id"];
 					postAnswer($jb, $doodle, $id_quest, $id_user);
+					header("location:question.php?id=" . $_GET['id'] ."");
 				}
 				else if(isset($_POST["submit"]) && $_SESSION["status"] != 1)
 					header("location:login.php?x=question");
@@ -45,6 +46,7 @@ require_once __DIR__.'/../sql/comment.php';
 						$id_jawaban = $data['jawaban'][$i]['id'];
 						$id_user = getUser($_SESSION['username']);
 						postComment($comment,$id_jawaban,$id_user['id']);
+						header("location:question.php?id=" . $_GET['id'] ."");
 					}
 				}
 				
