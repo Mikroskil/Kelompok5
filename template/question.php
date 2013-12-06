@@ -9,17 +9,19 @@ require_once __DIR__.'/../sql/comment.php';
 <html>
 	<head>
 		<title>Questions | EasyAsk</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/quest.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/jb.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/komen.css" />
+        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
 		<br class="break" />
 		<?php include_once 'menu.php'; ?>
 		<div class="container">
-			<form method="post">
+			<form method="post" class="doodle-form">
 			<h3>
 			<?php
 				$data = getQuestionAnswerCommentById($_GET['id']);
@@ -28,7 +30,7 @@ require_once __DIR__.'/../sql/comment.php';
 				if(isset($_POST["submit"]) && $_SESSION["status"] == 1 && (!empty($_POST["answer"])))
 				{
 					$jb = $_POST["answer"];
-					$doodle = "";
+					$doodle = $_POST['doodle'];
 					$id_quest = $data["id"];
 					$id_user = $iduser["id"];
 					postAnswer($jb, $doodle, $id_quest, $id_user);
@@ -134,6 +136,7 @@ require_once __DIR__.'/../sql/comment.php';
 				<label for="form-answer"><h3>Your Answer</h3><label>
 				<img src="../assets/images/doodlechat.jpg" width="200">
 				<br>
+                <?php include_once 'doodle.php'; ?>
 				<textarea name="answer" rows="5" cols="50%" id="form-answer" placeholder="type the answer here"></textarea>
 				<br>
 				<input type="submit" name="submit" value="Post Your Answer">
@@ -142,5 +145,7 @@ require_once __DIR__.'/../sql/comment.php';
 		</div>
 		<br class="break" />
 		<?php include_once 'footer.html'; ?>
+        <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../assets/js/doodle.js"></script>
 	</body>
 </html>
