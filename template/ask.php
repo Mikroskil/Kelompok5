@@ -5,7 +5,6 @@
 <html>
 	<head>
 		<title>Asking | EasyAsk</title>
-		<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
         <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
 	</head>
@@ -47,7 +46,6 @@
 		</div>
 		<br class="break" />
 		<?php include_once 'footer.html'; ?>
-        <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../assets/js/doodle.js"></script>
 	</body>
 </html>

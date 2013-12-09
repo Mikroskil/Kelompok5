@@ -9,7 +9,6 @@ require_once __DIR__.'/../sql/comment.php';
 <html>
 	<head>
 		<title>Questions | EasyAsk</title>
-		<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/quest.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/jb.css" />
@@ -58,7 +57,7 @@ require_once __DIR__.'/../sql/comment.php';
 			<div id="contain">
 				<?php
 					if (!empty($data['doodle']))
-						echo "<img src='../assets/uploads/" . $data['doodle'] . "' width='200'>";
+						echo "<img src='../uploads/" . $data['doodle'] . "' width='200'>";
 				?>
 				<br>
 				<p>
@@ -145,7 +144,6 @@ require_once __DIR__.'/../sql/comment.php';
 		</div>
 		<br class="break" />
 		<?php include_once 'footer.html'; ?>
-        <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../assets/js/doodle.js"></script>
 	</body>
 </html>
