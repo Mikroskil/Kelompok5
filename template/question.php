@@ -30,7 +30,7 @@ require_once __DIR__.'/../sql/comment.php';
 				{
 					$jb = $_POST["answer"];
 					$doodle = $_POST['doodle'];
-					$id_quest = $data["id"];
+					$id_quest = $data["id_pertanyaan"];
 					$id_user = $iduser["id"];
 					postAnswer($jb, $doodle, $id_quest, $id_user);
 					header("location:question.php?id=" . $_GET['id'] ."");
@@ -41,10 +41,10 @@ require_once __DIR__.'/../sql/comment.php';
 				$n = count($data['jawaban']);
 				for ($i = 0 ; $i < $n ; $i++)
 				{	
-					if (!empty($_POST[$data['jawaban'][$i]['id']]) && $_SESSION["status"] == 1)
+					if (!empty($_POST[$data['jawaban'][$i]['id_jawaban']]) && $_SESSION["status"] == 1)
 					{
-						$comment = $_POST[$data['jawaban'][$i]['id']];
-						$id_jawaban = $data['jawaban'][$i]['id'];
+						$comment = $_POST[$data['jawaban'][$i]['id_jawaban']];
+						$id_jawaban = $data['jawaban'][$i]['id_jawaban'];
 						$id_user = getUser($_SESSION['username']);
 						postComment($comment,$id_jawaban,$id_user['id']);
 						header("location:question.php?id=" . $_GET['id'] ."");
@@ -56,8 +56,8 @@ require_once __DIR__.'/../sql/comment.php';
 			?></h3>
 			<div id="contain">
 				<?php
-					if (!empty($data['doodle']))
-						echo "<img src='../uploads/" . $data['doodle'] . "' width='200'>";
+					if (!empty($data['doodle_pertanyaan']))
+						echo "<img src='../uploads/" . $data['doodle_pertanyaan'] . "' class='doodle'>";
 				?>
 				<br>
 				<p>
@@ -67,7 +67,7 @@ require_once __DIR__.'/../sql/comment.php';
 					echo "</div>";
 					echo "<br>";
 					echo "<div id='questUser'>";
-					echo "Post by : <a href='profil.php?id=" . $data['username'] . "'>" . $data['username'] . "</a>";
+					echo "Post by : <a href='profil.php?id=" . $data['user_pertanyaan'] . "'>" . $data['user_pertanyaan'] . "</a>";
 					echo "</div>";
 					echo "<div id='questDate'>";
 					echo "on " . $data['tanggalPert'];
@@ -87,13 +87,12 @@ require_once __DIR__.'/../sql/comment.php';
 					for ($i = 0 ; $i < $n ; $i++)
 					{
 						echo "<div id='answer'>";
-						echo "<ul>";
-						echo "<li>";
 						echo "<div id='Jb'>";
+						echo "<img src='../uploads/" . $data['jawaban'][$i]['doodle_jawaban'] . "' class='doodle'>";
 						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
 						echo "</div>";
 						echo "<div id='jbUser'>";
-						echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['username'] . "'>" . $data['jawaban'][$i]['username'] . "</a>";
+						echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['user_jawaban'] . "'>" . $data['jawaban'][$i]['user_jawaban'] . "</a>";
 						echo "</div>";
 						echo "<div id='jbDate'>";
 						echo  "on " . $data['jawaban'][$i]['tanggalJb'];
@@ -112,7 +111,7 @@ require_once __DIR__.'/../sql/comment.php';
 									echo "<p>" . $data['jawaban'][$i]['komentar'][$j]['komen'] . "</p>";
 									echo "</div>";
 									echo "<div id='komenUser'>";
-									echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['komentar'][$j]['username'] . "'>" . $data['jawaban'][$i]['komentar'][$j]['username'] . "</a>";
+									echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "'>" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "</a>";
 									echo "</div>";
 									echo "<div id='komenDate'>";
 									echo  "on " . $data['jawaban'][$i]['komentar'][$j]['tanggalKom'];
@@ -122,7 +121,7 @@ require_once __DIR__.'/../sql/comment.php';
 						}
 						
 						echo "<br class = 'break'>";
-						echo "<input type='text' size='100%' name='" . $data['jawaban'][$i]['id'] . "' id='form-comment' placeholder='write your comment'>";
+						echo "<input type='text' size='100%' name='" . $data['jawaban'][$i]['id_jawaban'] . "' id='form-comment' placeholder='write your comment'>";
 						echo "</fieldset><br>";
 						echo "</div>";
 						echo "</li>";
@@ -133,9 +132,8 @@ require_once __DIR__.'/../sql/comment.php';
 				?>
 				<hr>
 				<label for="form-answer"><h3>Your Answer</h3><label>
-				<img src="../assets/images/doodlechat.jpg" width="200">
-				<br>
                 <?php include_once 'doodle.php'; ?>
+				<br>
 				<textarea name="answer" rows="5" cols="50%" id="form-answer" placeholder="type the answer here"></textarea>
 				<br>
 				<input type="submit" name="submit" value="Post Your Answer">

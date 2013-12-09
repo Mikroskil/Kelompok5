@@ -69,23 +69,26 @@ function getQuestionAnswerCommentById($id) {
     	global $mysql;
 
     	$queryPertanyaan = mysql_query("
-        		SELECT p.*, u.username FROM pertanyaan p INNER JOIN user u ON u.id = p.id_user 
-        		WHERE p.id = $id
+            SELECT p.id id_pertanyaan, p.title, p.tag, p.pert, p.doodle doodle_pertanyaan, p.tanggalPert, u.username user_pertanyaan 
+            FROM pertanyaan p INNER JOIN user u ON u.id = p.id_user 
+            WHERE p.id = $id
     	");
 
     	$pertanyaan = mysql_fetch_assoc($queryPertanyaan);
 	
     	$queryJawaban = mysql_query("
-        		SELECT j.*, u.username FROM jawaban j INNER JOIN user u ON u.id = j.id_user 
-        		WHERE j.id_pertanyaan = $pertanyaan[id]
+            SELECT j.id id_jawaban, j.jb, j.doodle doodle_jawaban, j.tanggalJb, u.username user_jawaban 
+            FROM jawaban j INNER JOIN user u ON u.id = j.id_user 
+            WHERE j.id_pertanyaan = $pertanyaan[id_pertanyaan]
    	");
 	
     	$pertanyaan['jawaban'] = array();
 
     	while ($jawaban = mysql_fetch_assoc($queryJawaban)) {
         		$queryKomentar = mysql_query("
-            			SELECT k.*, u.username FROM komentar k INNER JOIN user u ON u.id = k.id_user
-            			WHERE k.id_jawaban = $jawaban[id]
+                    SELECT k.komen, k.tanggalKom, u.username user_komentar 
+                    FROM komentar k INNER JOIN user u ON u.id = k.id_user
+            			WHERE k.id_jawaban = $jawaban[id_jawaban]
         		");
 
         		$jawaban['komentar'] = array();
