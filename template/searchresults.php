@@ -13,6 +13,7 @@ $questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
 		<title>Search Result | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/link.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/quest.css" />
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
@@ -22,7 +23,19 @@ $questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
 			<h2>Search Results</h2>
 			<div id="contain">
                 				<?php foreach ($questions as $question): ?>
-                    				<a href="question.php"><p><?php echo $question['pert']; ?></p></a>
+				<div id="questTitle">
+                    					<?php echo "<a href='question.php?id=" . $question['id'] . "'>" . $question['title'] . "</a>"; ?>
+				</div>
+				<div id="quest">
+					<p><?php echo $question['pert']; ?></p>
+				</div>
+				<div id="questUser">
+					Post by : <?php echo "<a href='profil.php?id=" . $question['username'] . "'>" . $question['username'] . "</a>"; ?>
+				</div>
+				<div id="questDate">
+					on <?php echo $question['tanggalPert']; ?>
+				</div>
+				<br><br>
                 				<?php endforeach; ?>
 			</div>
 		</div>

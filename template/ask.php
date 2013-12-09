@@ -6,7 +6,7 @@
 	<head>
 		<title>Asking | EasyAsk</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
-        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+        		<script type="text/javascript" src="../assets/js/jquery.min.js"></script>
 	</head>
 	<body>
 		<?php include_once 'header.php'; ?>
@@ -31,21 +31,23 @@
 			<label for="form-quest"><h2>Your Question</h2></label>
 			<div id="contain">
 				<label for="form-title">Title</label>
-				<input type="text" name="title" id="form-title">
 				<br>
-                <?php include_once 'doodle.php'; ?>
+				<input type="text" name="title" id="form-title">
+				<br><br>
+                				<?php include_once 'doodle.php'; ?>
 				<br>
 				<textarea name="quest" rows="10" cols="80%" id="form-quest" placeholder="Type your question here..."></textarea>
 				<br>
 				<label for="form-tags">Tags</label>
-				<input type="text" name="tags" id="form-tags">
 				<br>
+				<input type="text" name="tags" id="form-tags">
+				<br><br>
 				<input type="submit" name="submit" value="Post Your Question" class="btn btn-primary">
 			</div>
 			</form>
 		</div>
 		<br class="break" />
 		<?php include_once 'footer.html'; ?>
-        <script type="text/javascript" src="../assets/js/doodle.js"></script>
+        		<script type="text/javascript" src="../assets/js/doodle.js"></script>
 	</body>
 </html>

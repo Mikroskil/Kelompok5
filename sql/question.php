@@ -21,7 +21,7 @@ function getUnanswerredQuestion()
 {
 	global $mysql;
 
-	$query = mysql_query("SELECT title, pert, username, tanggalPert FROM pertanyaan INNER JOIN user ON pertanyaan.id_user = user.id LEFT JOIN jawaban ON pertanyaan.id = jawaban.id_pertanyaan WHERE jb is NULL");
+	$query = mysql_query("SELECT pertanyaan.id, title, pert, username, tanggalPert FROM pertanyaan INNER JOIN user ON pertanyaan.id_user = user.id LEFT JOIN jawaban ON pertanyaan.id = jawaban.id_pertanyaan WHERE jb is NULL");
 	$result = array();
 	while ($data = mysql_fetch_assoc($query))
 	{
@@ -50,13 +50,13 @@ function searchQuestion($keywords, $tags)
     	global $mysql;
 
     	if (empty($tags)) {
-        		$query = mysql_query("SELECT * FROM pertanyaan WHERE pert LIKE '%$keywords%'");
+        		$query = mysql_query("SELECT * FROM pertanyaan WHERE tag LIKE '%$keywords%'");
     	} else {
         		$tags = array_map(function($element) { return "'$element'"; }, $tags);
         		$tagsFilter = implode(',', $tags);
         		$tagsFilter = '('.$tagsFilter.')';
 
-        		$query = mysql_query("SELECT * FROM pertanyaan WHERE pert LIKE '%$keywords%' AND tag IN $tagsFilter");
+        		$query = mysql_query("SELECT * FROM pertanyaan WHERE tag LIKE '%$keywords%' AND tag IN $tagsFilter");
    	}
     	$results = array();
     	while ($row = mysql_fetch_assoc($query)) {

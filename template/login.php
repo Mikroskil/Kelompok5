@@ -39,7 +39,7 @@ require_once __DIR__.'/../sql/user.php';
 					<br>
 					<input type="password" name="password" id="form-pass" placeholder="password...">
 					<br><br>
-					<input type="submit" name="login" value="Log in" > &nbsp; &nbsp; 
+					<input type="submit" name="login" value="Log in" class="btn btn-small btn-primary"> &nbsp; &nbsp; 
 					<br><br>
 					<p>Don't have an account? <a href="register.php">sign up</a></p>
 				</form>

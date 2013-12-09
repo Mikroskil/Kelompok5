@@ -77,7 +77,7 @@
 					<td><input type="text" name="email" size="30"></td>
 				</tr>
 				<tr>
-					<td colspan="3"><input type="submit" name="submit" value="sign up"></td>
+					<td colspan="3"><input type="submit" name="submit" value="sign up" class="btn btn-primary"></td>
 				</tr>
 				</table>
 				</form>
