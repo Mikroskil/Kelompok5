@@ -58,8 +58,8 @@
 					<td><input type="password" name="password" size="15"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" name="submit" value="Edit"></td>
-					<td><input type="reset" name="reset" value="Reset" /></td>
+					<td colspan="2"><input type="submit" name="submit" value="Edit" class="btn btn-small btn-primary"></td>
+					<td><input type="reset" name="reset" value="Reset" class="btn btn-small btn-primary"/></td>
 				</tr>
 				</table>
 				</form>

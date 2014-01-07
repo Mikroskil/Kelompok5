@@ -11,7 +11,7 @@ require_once __DIR__.'/../sql/user.php';
 		<br class="break">
 		<?php include_once 'menu.php'; ?>
         		<div class="container">
-            			<h3>Log In</h3>
+            			<h2>Log In</h2>
             			<div id="contain">
 				<form class="login" action="" method="post">
 					<?php

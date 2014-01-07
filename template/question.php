@@ -67,10 +67,10 @@ require_once __DIR__.'/../sql/comment.php';
 					echo "</div>";
 					echo "<br>";
 					echo "<div id='questUser'>";
-					echo "Post by : <a href='profil.php?id=" . $data['user_pertanyaan'] . "'>" . $data['user_pertanyaan'] . "</a>";
+					echo "by : <a href='profil.php?id=" . $data['user_pertanyaan'] . "'>" . $data['user_pertanyaan'] . "</a>";
 					echo "</div>";
 					echo "<div id='questDate'>";
-					echo "on " . $data['tanggalPert'];
+					echo "- &nbsp;" . $data['tanggalPert'];
 					echo "</div>";
 				?>
 				</p>
@@ -88,14 +88,15 @@ require_once __DIR__.'/../sql/comment.php';
 					{
 						echo "<div id='answer'>";
 						echo "<div id='Jb'>";
-						echo "<img src='../uploads/" . $data['jawaban'][$i]['doodle_jawaban'] . "' class='doodle'>";
+						if (!empty($data['jawaban'][$i]['doodle_jawaban']))
+							echo "<img src='../uploads/" . $data['jawaban'][$i]['doodle_jawaban'] . "' class='doodle'>";
 						echo "<p>" . $data['jawaban'][$i]['jb'] . "</p><br>";
 						echo "</div>";
 						echo "<div id='jbUser'>";
-						echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['user_jawaban'] . "'>" . $data['jawaban'][$i]['user_jawaban'] . "</a>";
+						echo  "by : <a href='profil.php?id=" . $data['jawaban'][$i]['user_jawaban'] . "'>" . $data['jawaban'][$i]['user_jawaban'] . "</a>";
 						echo "</div>";
 						echo "<div id='jbDate'>";
-						echo  "on " . $data['jawaban'][$i]['tanggalJb'];
+						echo  "- &nbsp;" . $data['jawaban'][$i]['tanggalJb'];
 						echo "</div>";
 						echo "<br><br>";
 						echo "<div id='comment'>";
@@ -111,21 +112,18 @@ require_once __DIR__.'/../sql/comment.php';
 									echo "<p>" . $data['jawaban'][$i]['komentar'][$j]['komen'] . "</p>";
 									echo "</div>";
 									echo "<div id='komenUser'>";
-									echo  "Post by : <a href='profil.php?id=" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "'>" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "</a>";
+									echo  "by : <a href='profil.php?id=" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "'>" . $data['jawaban'][$i]['komentar'][$j]['user_komentar'] . "</a>";
 									echo "</div>";
 									echo "<div id='komenDate'>";
-									echo  "on " . $data['jawaban'][$i]['komentar'][$j]['tanggalKom'];
+									echo  "- &nbsp;" . $data['jawaban'][$i]['komentar'][$j]['tanggalKom'];
 									echo "<br><br>";
 								echo "</div>";
 							}
 						}
-						
 						echo "<br class = 'break'>";
 						echo "<input type='text' size='100%' name='" . $data['jawaban'][$i]['id_jawaban'] . "' id='form-comment' placeholder='write your comment'>";
 						echo "</fieldset><br>";
 						echo "</div>";
-						echo "</li>";
-						echo "</ul>";
 						echo "</div>";
 					}
 				}

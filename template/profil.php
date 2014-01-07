@@ -45,7 +45,7 @@
 				<tr>
 					<?php
 						if ($_GET["id"] == $_SESSION["username"] || empty($_GET["id"]) )
-							echo "<td colspan='3'><input type='submit' name='edit' value='Edit Name & Password' /></td>";
+							echo "<td colspan='3'><input type='submit' name='edit' value='Edit Name & Password' class='btn btn-small btn-primary'/></td>";
 					?>
 				</tr>
 				</table>

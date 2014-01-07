@@ -50,13 +50,13 @@ function searchQuestion($keywords, $tags)
     	global $mysql;
 
     	if (empty($tags)) {
-        		$query = mysql_query("SELECT * FROM pertanyaan WHERE tag LIKE '%$keywords%'");
+        		$query = mysql_query("SELECT p.*, username FROM pertanyaan p INNER JOIN user u ON p.id_user = u.id WHERE tag LIKE '%$keywords%'");
     	} else {
         		$tags = array_map(function($element) { return "'$element'"; }, $tags);
         		$tagsFilter = implode(',', $tags);
         		$tagsFilter = '('.$tagsFilter.')';
 
-        		$query = mysql_query("SELECT * FROM pertanyaan WHERE tag LIKE '%$keywords%' AND tag IN $tagsFilter");
+        		$query = mysql_query("SELECT p.*, username FROM pertanyaan p INNER JOIN user u ON p.id_user = u.id WHERE tag LIKE '%$keywords%' AND tag IN $tagsFilter");
    	}
     	$results = array();
     	while ($row = mysql_fetch_assoc($query)) {

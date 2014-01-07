@@ -30,10 +30,10 @@ $questions = searchQuestion(trim(implode(' ', $keywords)), $tags[1]);
 					<p><?php echo $question['pert']; ?></p>
 				</div>
 				<div id="questUser">
-					Post by : <?php echo "<a href='profil.php?id=" . $question['username'] . "'>" . $question['username'] . "</a>"; ?>
+					by : <?php echo "<a href='profil.php?id=" . $question['username'] . "'>" . $question['username'] . "</a>"; ?>
 				</div>
 				<div id="questDate">
-					on <?php echo $question['tanggalPert']; ?>
+					- &nbsp;<?php echo $question['tanggalPert']; ?>
 				</div>
 				<br><br>
                 				<?php endforeach; ?>

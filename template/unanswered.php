@@ -28,10 +28,10 @@
 					echo "<p> " . $hasil[$i]['pert'] . "</p>";
 					echo "</div>";
 					echo "<div id='questUser'>";
-					echo "Post by : <a href='profil.php?id=" . $hasil[$i]['username'] . "'>"  . $hasil[$i]['username'] . "</a>";
+					echo "by : <a href='profil.php?id=" . $hasil[$i]['username'] . "'>"  . $hasil[$i]['username'] . "</a>";
 					echo "</div>";
 					echo "<div id='questDate'>";
-					echo " Post Date : " . $hasil[$i]['tanggalPert'];
+					echo "- &nbsp;" . $hasil[$i]['tanggalPert'];
 					echo "</div>";
 					echo "<br><br>";
 				}
